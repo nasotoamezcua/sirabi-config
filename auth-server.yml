@@ -1,0 +1,31 @@
+#CLIENTE --> OBJETIVO: seguridad
+server:  
+  port: ${PORT:8880}
+
+#Proyecto cliente que nececita matricularse
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8879/eureka/
+      
+#Configurar oauth2     
+security:
+  oauth2:
+    client:
+      client-id: pachis
+      client-secret: secret
+      authorized-grant-types: password,client_credentials,authorization_code,refresh_token
+      scope: read,write      
+      access-token-validity-seconds: 30
+      
+#Credenciales
+spring:    
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost/sirabiProject
+    username: postgres
+    password: postgres123
+
+logging:
+  level:
+    org.springframework.security: TRACE

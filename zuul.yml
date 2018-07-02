@@ -1,0 +1,34 @@
+#CLIENTE --> OBJETIVO: que se comporte como una puerta de enlace (Gateway)
+server:
+  port: ${PORT:8099}
+  
+#Proyecto cliente que nececita matricularse
+eureka:
+  client:
+    #registerWithEureka: false #que no se vea
+    serviceUrl:
+      defaultZone: http://localhost:8879/eureka/
+
+#configuramos zuul - mapear los microservicios mediante apodos
+zuul:
+  host: #aumentar el timeout para la autentificacion (seguridad)
+    connect-timeout-millis: 66000000
+    socket-timeout-millis: 66000000
+  routes:
+    uaa: 
+      path: /uaa/**
+      sensitiveHeaders: #para seguridad, que va a ser sensitivo a lo que se mande en el header de la peticion (token)
+      serviceId: AUTH-SERVER
+    sirabi-admin:
+      path: /sirabi-admin/**                  #acceder a sirabiadmin - cualquier peticion que tenga '/micro-client/**' lo sustituira por 'http://localhost:8080/'  EJEMPLO
+      sensitiveHeaders: #para seguridad
+      serviceId: SIRABI-ADMIN                 #el id matriculado por eureka
+    sirabi-acto-nacimiento:
+      path: /sirabi-acto-nacimiento/**        #acceder a acto nacimiento
+      sensitiveHeaders: #para seguridad
+      serviceId: SIRABI-ACTO-NACIMIENTO       #el id matriculado por eureka
+ #   sirabi-acta-reportes:
+ #     path: /sirabi-acta-reportes/**                           #acceder a sirabiadmin
+ #     sensitiveHeaders: #para seguridad
+ #     serviceId: SIRABI-ACTA-REPORTES
+      

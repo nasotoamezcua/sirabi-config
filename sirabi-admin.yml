@@ -1,0 +1,47 @@
+#CLIENTE --> OBJETIVO: programa administrador del sistema
+server:
+   port: ${PORT:8881}
+
+##Proyecto cliente que nececita matricularse
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8879/eureka/ #https://eureka-mito.herokuapp.com/eureka/ 
+
+##para seguridad 
+security:
+   oauth2:
+    resource:
+      userInfoUri: http://localhost:8880/user #donde obtendra las credenciales del usuario logueado
+      
+spring:
+  profiles.active: development
+
+---
+spring:
+  profiles: development
+  datasource:
+    db-postgresql:
+      url: jdbc:postgresql://localhost/sirabiProject
+      username: postgres
+      password: postgres123
+      driver-class-name: org.postgresql.Driver
+      test-on-borrow: true
+      validation-query: SELECT * FROM rol
+    db-mysql:
+      url: jdbc:mysql://localhost/sirabiProject
+      username: root
+      password: aztektec321
+      driver-class-name: com.mysql.jdbc.Driver
+      test-on-borrow: true
+      validation-query: SELECT * FROM rol
+---
+
+spring:
+  profiles: test
+  datasource:
+    url: jdbc:postgresql://localhost/sirabiProject
+    username: postgres
+    password: postgres123
+    driver-class-name: org.postgresql.Driver
+  

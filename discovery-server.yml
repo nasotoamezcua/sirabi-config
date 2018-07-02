@@ -1,0 +1,11 @@
+#SERVIDOR DE DESCUBRIMIENTO --> OBJETIVO: conocer donde estan los servicios
+server:
+  port: ${PORT:8849}
+
+eureka:
+  instance:
+    hostname: localhost
+  client:  # Not a client, don't register with yourself
+    registerWithEureka: false
+    fetchRegistry: false
+    
