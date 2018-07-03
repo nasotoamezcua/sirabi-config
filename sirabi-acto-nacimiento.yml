@@ -1,6 +1,6 @@
 #CLIENTE --> OBJETIVO: programa alta actas de nacimiento
 server:
-   port: ${PORT:8882}
+   port: ${PORT:8892}
 
 ##Proyecto cliente que nececita matricularse
 eureka:
