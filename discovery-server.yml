@@ -1,6 +1,6 @@
 #SERVIDOR DE DESCUBRIMIENTO --> OBJETIVO: conocer donde estan los servicios
 server:
-  port: ${PORT:8879}
+  port: ${PORT:8859}
 
 eureka:
   instance:
