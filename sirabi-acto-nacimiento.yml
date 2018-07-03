@@ -6,7 +6,7 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8879/eureka/ #https://eureka-mito.herokuapp.com/eureka/ 
+      defaultZone: http://localhost:8879/eureka/
 
 ##para seguridad 
 security:
@@ -36,6 +36,7 @@ spring:
       driver-class-name: com.mysql.jdbc.Driver
       test-on-borrow: true
       validation-query: SELECT * FROM rol
+
 ---
 spring:
   profiles: test
@@ -44,4 +45,15 @@ spring:
     username: postgres
     password: postgres123
     driver-class-name: org.postgresql.Driver
-  
+
+logging:  
+  file: /home/isaac/Documents/logs/${spring.application.name}.log
+  level:
+    com.netflix.discovery: 'OFF'
+    org.springframework.cloud: 'DEBUG'
+    org.springframework.web: 'WARN'
+    org.renapo: 'WARN'
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} | [%thread] | %-5level | %logger{36} - %msg%n"
+    

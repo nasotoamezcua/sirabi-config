@@ -1,6 +1,6 @@
 #SERVIDOR DE DESCUBRIMIENTO --> OBJETIVO: conocer donde estan los servicios
 server:
-  port: ${PORT:8849}
+  port: ${PORT:8879}
 
 eureka:
   instance:
@@ -8,4 +8,14 @@ eureka:
   client:  # Not a client, don't register with yourself
     registerWithEureka: false
     fetchRegistry: false
-    
+
+logging:  
+  file: /home/isaac/Documents/logs/${spring.application.name}.log
+  level:
+    com.netflix.discovery: 'OFF'
+    org.springframework.cloud: 'DEBUG'
+    org.springframework.web: 'WARN'
+    org.renapo: 'WARN'
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} | [%thread] | %-5level | %logger{36} - %msg%n"
