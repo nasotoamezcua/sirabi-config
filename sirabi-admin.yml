@@ -1,6 +1,6 @@
 #CLIENTE --> OBJETIVO: programa administrador del sistema
 server:
-   port: ${PORT:8881}
+   port: ${PORT:8891}
 
 ##Proyecto cliente que nececita matricularse
 eureka:
