@@ -1,6 +1,6 @@
 #CLIENTE --> OBJETIVO: que se comporte como una puerta de enlace (Gateway)
 server:
-  port: ${PORT:8099}
+  port: ${PORT:8199}
   
 #Proyecto cliente que nececita matricularse
 eureka:
