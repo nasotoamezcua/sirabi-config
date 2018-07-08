@@ -16,15 +16,15 @@ security:
       client-secret: secret
       authorized-grant-types: password,client_credentials,authorization_code,refresh_token
       scope: read,write      
-      access-token-validity-seconds: 30
-      
+      access-token-validity-seconds: 0
+
 #Credenciales
 spring:    
   datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost/sirabiProject
-    username: postgres
-    password: postgres123
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost/sirabiProject
+    username: root
+    password: aztektec321
 
 logging:  
   file: /home/isaac/Documents/logs/${spring.application.name}.log
@@ -34,4 +34,5 @@ logging:
     org.springframework.web: 'WARN'
     org.renapo: 'WARN'
   pattern:
+    #console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
     file: "%d{yyyy-MM-dd HH:mm:ss} | [%thread] | %-5level | %logger{36} - %msg%n"
