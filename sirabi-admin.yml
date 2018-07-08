@@ -1,6 +1,6 @@
 #CLIENTE --> OBJETIVO: programa administrador del sistema
 server:
-   port: ${PORT:8891}
+   port: ${PORT:8881}
 
 ##Proyecto cliente que nececita matricularse
 eureka:
@@ -53,4 +53,8 @@ logging:
     org.springframework.web: 'WARN'
     org.renapo: 'WARN'
   pattern:
+    #console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
     file: "%d{yyyy-MM-dd HH:mm:ss} | [%thread] | %-5level | %logger{36} - %msg%n"
+
+
+  
