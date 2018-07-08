@@ -16,21 +16,25 @@ zuul:
     socket-timeout-millis: 66000000
   routes:
     uaa: 
-      path: /uaa/**
-      sensitiveHeaders: #para seguridad, que va a ser sensitivo a lo que se mande en el header de la peticion (token)
-      serviceId: AUTH-SERVER
+      path: /uaa/**                 #acceder a admin - cualquier peticion que tenga '/sirabi-admin/**' lo sustituira por 'http://localhost:8881/'  EJEMPLO
+      sensitiveHeaders:             #para seguridad, que va a ser sensitivo a lo que se mande en el header de la peticion (token)
+      serviceId: AUTH-SERVER        #el id matriculado por eureka
     sirabi-admin:
-      path: /sirabi-admin/**                  #acceder a sirabiadmin - cualquier peticion que tenga '/micro-client/**' lo sustituira por 'http://localhost:8080/'  EJEMPLO
-      sensitiveHeaders: #para seguridad
-      serviceId: SIRABI-ADMIN                 #el id matriculado por eureka
+      path: /sirabi-admin/**
+      sensitiveHeaders:
+      serviceId: SIRABI-ADMIN
     sirabi-acto-nacimiento:
-      path: /sirabi-acto-nacimiento/**        #acceder a acto nacimiento
-      sensitiveHeaders: #para seguridad
-      serviceId: SIRABI-ACTO-NACIMIENTO       #el id matriculado por eureka
- #   sirabi-acta-reportes:
- #     path: /sirabi-acta-reportes/**                           #acceder a sirabiadmin
- #     sensitiveHeaders: #para seguridad
- #     serviceId: SIRABI-ACTA-REPORTES
+      path: /sirabi-acto-nacimiento/**
+      sensitiveHeaders:
+      serviceId: SIRABI-ACTO-NACIMIENTO
+    sirabi-busqueda-individuo:
+      path: /sirabi-busqueda-individuo/**
+      #sensitiveHeaders:
+      serviceId: SIRABI-BUSQUEDA-INDIVIDUO
+    sirabi-acta-reportes:
+      path: /sirabi-acta-reportes/**
+      sensitiveHeaders:
+      serviceId: SIRABI-ACTA-REPORTES
       
 logging:  
   file: /home/isaac/Documents/logs/${spring.application.name}.log
@@ -39,4 +43,5 @@ logging:
     org.springframework.cloud: 'DEBUG'
     org.renapo: 'WARN'
   pattern:
+    #console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
     file: "%d{yyyy-MM-dd HH:mm:ss} | [%thread] | %-5level | %logger{36} - %msg%n"
