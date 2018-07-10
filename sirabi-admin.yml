@@ -31,10 +31,11 @@ spring:
     db-mysql:
       url: jdbc:mysql://localhost/sirabiProject
       username: root
-      password: aztektec321
+      password: sirabi
+      #password: aztektec321
       driver-class-name: com.mysql.jdbc.Driver
-      test-on-borrow: true
-      validation-query: SELECT * FROM rol
+      #test-on-borrow: true
+      #validation-query: SELECT * FROM rol
 
 ---
 spring:
