@@ -35,7 +35,8 @@ spring:
     #password: aztektec321
     url: jdbc:mysql://localhost/sirabiProject?useSSL=false
     username: root    
-    password: aztektec321
+    password: sirabi
+    #password: aztektec321
     driver-class-name: com.mysql.jdbc.Driver
     platform: mysql
    
